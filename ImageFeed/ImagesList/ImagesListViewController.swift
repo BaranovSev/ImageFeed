@@ -29,6 +29,7 @@ class ImagesListViewController: UIViewController {
     }
 }
 
+//TODO: replace configCell to ImagesListCell
 extension ImagesListViewController {
     func configCell(for cell: ImagesListCell, with indexPath: IndexPath) {
         guard let image = UIImage(named: photosName[indexPath.row]) else {
@@ -45,6 +46,7 @@ extension ImagesListViewController {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension ImagesListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { }
     
@@ -61,6 +63,7 @@ extension ImagesListViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - UITableViewDataSource
 extension ImagesListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ImagesListCell.reuseIdentifier, for: indexPath)
