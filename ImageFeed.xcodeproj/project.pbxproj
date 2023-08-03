@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD22042A2A7A70F3009E7CB9 /* ImagesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2204292A7A70F3009E7CB9 /* ImagesListCell.swift */; };
 		FDC1114F2A77EA7300591356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1114E2A77EA7300591356 /* AppDelegate.swift */; };
 		FDC111512A77EA7300591356 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111502A77EA7300591356 /* SceneDelegate.swift */; };
-		FDC111532A77EA7300591356 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111522A77EA7300591356 /* ViewController.swift */; };
+		FDC111532A77EA7300591356 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111522A77EA7300591356 /* ImagesListViewController.swift */; };
 		FDC111562A77EA7300591356 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC111542A77EA7300591356 /* Main.storyboard */; };
 		FDC111582A77EA7400591356 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDC111572A77EA7400591356 /* Assets.xcassets */; };
 		FDC1115B2A77EA7400591356 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDC111592A77EA7400591356 /* LaunchScreen.storyboard */; };
@@ -36,10 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD2204292A7A70F3009E7CB9 /* ImagesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListCell.swift; sourceTree = "<group>"; };
 		FDC1114B2A77EA7300591356 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC1114E2A77EA7300591356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDC111502A77EA7300591356 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FDC111522A77EA7300591356 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FDC111522A77EA7300591356 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		FDC111552A77EA7300591356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FDC111572A77EA7400591356 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDC1115A2A77EA7400591356 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD2204282A7A70CD009E7CB9 /* ImagesList */ = {
+			isa = PBXGroup;
+			children = (
+				FDC111522A77EA7300591356 /* ImagesListViewController.swift */,
+				FD2204292A7A70F3009E7CB9 /* ImagesListCell.swift */,
+			);
+			path = ImagesList;
+			sourceTree = "<group>";
+		};
 		FDC111422A77EA7300591356 = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +112,7 @@
 			children = (
 				FDC1114E2A77EA7300591356 /* AppDelegate.swift */,
 				FDC111502A77EA7300591356 /* SceneDelegate.swift */,
-				FDC111522A77EA7300591356 /* ViewController.swift */,
+				FD2204282A7A70CD009E7CB9 /* ImagesList */,
 				FDC111542A77EA7300591356 /* Main.storyboard */,
 				FDC111572A77EA7400591356 /* Assets.xcassets */,
 				FDC111592A77EA7400591356 /* LaunchScreen.storyboard */,
@@ -258,7 +269,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDC111532A77EA7300591356 /* ViewController.swift in Sources */,
+				FDC111532A77EA7300591356 /* ImagesListViewController.swift in Sources */,
+				FD22042A2A7A70F3009E7CB9 /* ImagesListCell.swift in Sources */,
 				FDC1114F2A77EA7300591356 /* AppDelegate.swift in Sources */,
 				FDC111512A77EA7300591356 /* SceneDelegate.swift in Sources */,
 			);
