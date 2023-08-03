@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-qd-nD0" userLabel="Cell Image">
-                                                    <rect key="frame" x="20" y="11" width="374" height="157"/>
+                                                    <rect key="frame" x="16" y="4" width="382" height="171"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -38,7 +38,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LnU-lD-MCP" userLabel="Like Button">
-                                                    <rect key="frame" x="350" y="11" width="44" height="44"/>
+                                                    <rect key="frame" x="354" y="4" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="3IP-UX-dNo"/>
                                                         <constraint firstAttribute="height" constant="44" id="nSF-LS-VCC"/>
@@ -47,7 +47,7 @@
                                                     <state key="normal" image="like_button_on"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22 августа 2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPL-p2-K0t" userLabel="Date Label">
-                                                    <rect key="frame" x="28" y="144" width="102" height="16"/>
+                                                    <rect key="frame" x="24" y="151" width="102" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" name="YP White (iOS)"/>
                                                     <nil key="highlightedColor"/>
@@ -55,15 +55,15 @@
                                             </subviews>
                                             <color key="backgroundColor" name="YP Black (iOS)"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jPL-p2-K0t" secondAttribute="trailing" constant="20" symbolic="YES" id="709-FS-60n"/>
-                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="top" secondItem="XIj-dP-K4e" secondAttribute="topMargin" id="9H6-74-tZ4"/>
-                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="leading" secondItem="XIj-dP-K4e" secondAttribute="leadingMargin" id="NfX-UM-DdZ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="jPL-p2-K0t" secondAttribute="bottom" constant="8" id="O5v-vo-JQF"/>
-                                                <constraint firstItem="LnU-lD-MCP" firstAttribute="trailing" secondItem="XIj-dP-K4e" secondAttribute="trailingMargin" id="RaK-h3-ecx"/>
-                                                <constraint firstItem="LnU-lD-MCP" firstAttribute="top" secondItem="XIj-dP-K4e" secondAttribute="topMargin" id="Yez-nr-xu9"/>
-                                                <constraint firstItem="jPL-p2-K0t" firstAttribute="leading" secondItem="XIj-dP-K4e" secondAttribute="leadingMargin" constant="8" id="Zbt-L6-tkK"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Tqe-qd-nD0" secondAttribute="bottom" id="hx8-PL-tga"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Tqe-qd-nD0" secondAttribute="trailing" id="ud3-z9-02N"/>
+                                                <constraint firstAttribute="trailing" secondItem="Tqe-qd-nD0" secondAttribute="trailing" constant="16" id="05h-CV-lrF"/>
+                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="top" secondItem="XIj-dP-K4e" secondAttribute="top" constant="4" id="EbE-Nc-IaO"/>
+                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jPL-p2-K0t" secondAttribute="trailing" constant="8" id="JRd-0B-ZcI"/>
+                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="bottom" secondItem="jPL-p2-K0t" secondAttribute="bottom" constant="8" id="PBw-ry-1Fv" userLabel="Cell Image.bottom = Date Label.bottom + 8"/>
+                                                <constraint firstItem="Tqe-qd-nD0" firstAttribute="leading" secondItem="XIj-dP-K4e" secondAttribute="leading" constant="16" id="PfF-nc-A5p"/>
+                                                <constraint firstItem="LnU-lD-MCP" firstAttribute="top" secondItem="Tqe-qd-nD0" secondAttribute="top" id="b9z-3T-HaA"/>
+                                                <constraint firstItem="LnU-lD-MCP" firstAttribute="trailing" secondItem="Tqe-qd-nD0" secondAttribute="trailing" id="cgJ-J8-g7t"/>
+                                                <constraint firstAttribute="bottom" secondItem="Tqe-qd-nD0" secondAttribute="bottom" constant="4" id="eqS-pc-ms4"/>
+                                                <constraint firstItem="jPL-p2-K0t" firstAttribute="leading" secondItem="Tqe-qd-nD0" secondAttribute="leading" constant="8" id="mE4-GG-cUZ" userLabel="Date Label.leading = Cell Image.leading + 8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="YP Black (iOS)"/>
