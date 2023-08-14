@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oWP-we-Wdr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0BV-Kx-URV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -89,13 +89,36 @@
                             <constraint firstItem="qUd-Fi-P5m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dU5-kM-1sU"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="tab_editorial_active" id="atJ-ez-GOW"/>
                     <connections>
                         <outlet property="tableView" destination="qUd-Fi-P5m" id="7RJ-uz-mdf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="3"/>
+            <point key="canvasLocation" x="790" y="-706"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="URz-yT-n9A">
+            <objects>
+                <tabBarController id="0BV-Kx-URV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wus-Cy-dfd">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="YP White (iOS)"/>
+                        <tabBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" name="YP Black (iOS)"/>
+                        </tabBarAppearance>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="iEl-DF-CI2"/>
+                        <segue destination="oWP-we-Wdr" kind="relationship" relationship="viewControllers" id="mjG-k6-JUz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUt-xz-Ol3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="-336"/>
         </scene>
         <!--Profile-->
         <scene sceneID="1Ir-Az-cgK">
@@ -167,6 +190,7 @@
                             <constraint firstItem="NNm-aG-U5Z" firstAttribute="trailing" secondItem="E1c-P5-jTa" secondAttribute="trailing" id="nUa-oE-5JA"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="tab_profile_active" id="1I2-Ad-lRB"/>
                     <connections>
                         <outlet property="avararImage" destination="Mv3-mv-A6H" id="Iox-ad-wcN"/>
                         <outlet property="emailLabel" destination="E1c-P5-jTa" id="JAq-EO-Ofj"/>
@@ -185,6 +209,8 @@
         <image name="avatar" width="70" height="70"/>
         <image name="like_button_on" width="42" height="42"/>
         <image name="logout_button" width="24" height="24"/>
+        <image name="tab_editorial_active" width="75.5" height="49"/>
+        <image name="tab_profile_active" width="75.5" height="49"/>
         <namedColor name="YP Black (iOS)">
             <color red="0.10199999809265137" green="0.10599999874830246" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
