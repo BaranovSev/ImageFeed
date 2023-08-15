@@ -18,6 +18,7 @@
 		FDC111662A77EA7400591356 /* ImageFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111652A77EA7400591356 /* ImageFeedTests.swift */; };
 		FDC111702A77EA7400591356 /* ImageFeedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1116F2A77EA7400591356 /* ImageFeedUITests.swift */; };
 		FDC111722A77EA7400591356 /* ImageFeedUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111712A77EA7400591356 /* ImageFeedUITestsLaunchTests.swift */; };
+		FDFE54FF2A8BE8D700541A7E /* SingleImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFE54FE2A8BE8D700541A7E /* SingleImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		FDC1116B2A77EA7400591356 /* ImageFeedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageFeedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC1116F2A77EA7400591356 /* ImageFeedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITests.swift; sourceTree = "<group>"; };
 		FDC111712A77EA7400591356 /* ImageFeedUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFeedUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FDFE54FE2A8BE8D700541A7E /* SingleImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				FDC111502A77EA7300591356 /* SceneDelegate.swift */,
 				FD9A4F692A89414A00C93547 /* Profile */,
 				FD2204282A7A70CD009E7CB9 /* ImagesList */,
+				FDFE55002A8BEFE500541A7E /* SingleImage */,
 				FDC111542A77EA7300591356 /* Main.storyboard */,
 				FDC111572A77EA7400591356 /* Assets.xcassets */,
 				FDC111592A77EA7400591356 /* LaunchScreen.storyboard */,
@@ -147,6 +150,14 @@
 				FDC111712A77EA7400591356 /* ImageFeedUITestsLaunchTests.swift */,
 			);
 			path = ImageFeedUITests;
+			sourceTree = "<group>";
+		};
+		FDFE55002A8BEFE500541A7E /* SingleImage */ = {
+			isa = PBXGroup;
+			children = (
+				FDFE54FE2A8BE8D700541A7E /* SingleImageViewController.swift */,
+			);
+			path = SingleImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				FD22042A2A7A70F3009E7CB9 /* ImagesListCell.swift in Sources */,
 				FD9A4F6B2A89418A00C93547 /* ProfileViewController.swift in Sources */,
 				FDC1114F2A77EA7300591356 /* AppDelegate.swift in Sources */,
+				FDFE54FF2A8BE8D700541A7E /* SingleImageViewController.swift in Sources */,
 				FDC111512A77EA7300591356 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
