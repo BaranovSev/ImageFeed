@@ -28,11 +28,11 @@ final class SingleImageViewController: UIViewController {
         rescaleAndCenterImageInScrollView(image: image)
     }
     
-    @IBAction func didTapBackButton() {
+    @IBAction private func didTapBackButton() {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func didTabShareAction(_ sender: Any) {
+    @IBAction private func didTabShareAction(_ sender: Any) {
         let share = UIActivityViewController(
             activityItems: [image],
             applicationActivities: nil
@@ -59,6 +59,7 @@ final class SingleImageViewController: UIViewController {
     }
 }
 
+// MARK: - UIScrollViewDelegate
 extension SingleImageViewController: UIScrollViewDelegate {
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         imageView
