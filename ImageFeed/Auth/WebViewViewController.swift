@@ -90,6 +90,10 @@ extension WebViewViewController: WKNavigationDelegate {
     ) {
         if let code = code(from: navigationAction) {
             delegate?.webViewViewController(self, didAuthenticateWithCode: code)
+            // или сюда?
+            OAuth2Service.shared.fetchAuthToken(code) { [weak self] result in
+                //self?.delegate?.webViewViewController(<#T##vc: WebViewViewController##WebViewViewController#>, didAuthenticateWithCode: code)
+            }
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
