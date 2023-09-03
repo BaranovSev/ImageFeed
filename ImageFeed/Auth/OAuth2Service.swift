@@ -8,11 +8,10 @@
 import Foundation
 
 // MARK: - Storage
-//мое творчество, а может вообще не надо...
 final class OAuth2TokenStorage {
     private let userDefaults = UserDefaults.standard
     private enum Keys: String {
-        case token //это который accessToken (выше)?
+        case token
     }
     var token: String? {
         get {
