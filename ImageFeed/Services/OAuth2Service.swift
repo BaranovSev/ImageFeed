@@ -7,32 +7,6 @@
 
 import Foundation
 
-// MARK: - Storage
-final class OAuth2TokenStorage {
-    private let userDefaults = UserDefaults.standard
-    private enum Keys: String {
-        case token
-    }
-    var token: String? {
-        get {
-            guard let data = userDefaults.data(forKey: Keys.token.rawValue),
-                  let record = try? JSONDecoder().decode(String.self, from: data) else {
-                return nil
-            }
-            
-            return record
-        }
-        
-        set {
-            guard let data = try? JSONEncoder().encode(newValue) else {
-                return
-            }
-            
-            userDefaults.set(data, forKey: Keys.token.rawValue)
-        }
-    }
-}
-
 // MARK: - OAuth2Service
 final class OAuth2Service {
     static let shared = OAuth2Service()
@@ -67,6 +41,7 @@ final class OAuth2Service {
     }
 }
 
+// MARK: - Helpers for sprint 10
 extension OAuth2Service {
     private func object(
         for request: URLRequest,
@@ -93,7 +68,10 @@ extension OAuth2Service {
             baseURL: URL(string: "https://unsplash.com")!
         )
     }
-    
+}
+
+// MARK: - Helpers for sprint 11
+extension OAuth2Service {
     var selfProfileRequest: URLRequest {
         URLRequest.makeHTTPRequest(path: "/me", httpMethod: "GET")
     }
