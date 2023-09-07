@@ -64,6 +64,10 @@ final class ProfileViewController: UIViewController {
         applyConstraints()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Private Methods
     private func addSubViews() {
         view.addSubview(imageView)

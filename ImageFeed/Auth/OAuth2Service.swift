@@ -17,7 +17,6 @@ final class OAuth2TokenStorage {
         get {
             guard let data = userDefaults.data(forKey: Keys.token.rawValue),
                   let record = try? JSONDecoder().decode(String.self, from: data) else {
-                assertionFailure("Empty value of brearer token")
                 return nil
             }
             
