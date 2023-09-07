@@ -73,8 +73,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-Ai-gkk">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="abJ-Ai-gkk">
+                                <rect key="frame" x="0.0" y="92" width="414" height="804"/>
                                 <color key="backgroundColor" name="YP White (iOS)"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="4Ih-56-NLD" firstAttribute="leading" secondItem="3NJ-wR-Um1" secondAttribute="leading" id="GhB-jS-vPE"/>
                             <constraint firstItem="abJ-Ai-gkk" firstAttribute="leading" secondItem="c91-rX-zly" secondAttribute="leading" id="Myj-TI-S70"/>
                             <constraint firstItem="7MX-7M-fmW" firstAttribute="top" secondItem="4Ih-56-NLD" secondAttribute="bottom" id="blc-hK-8Up"/>
-                            <constraint firstItem="abJ-Ai-gkk" firstAttribute="top" secondItem="c91-rX-zly" secondAttribute="top" id="jPF-mB-H1e"/>
+                            <constraint firstItem="abJ-Ai-gkk" firstAttribute="top" secondItem="7MX-7M-fmW" secondAttribute="top" id="jPF-mB-H1e"/>
                             <constraint firstItem="abJ-Ai-gkk" firstAttribute="trailing" secondItem="c91-rX-zly" secondAttribute="trailing" id="p8l-Kv-u5i"/>
                             <constraint firstItem="abJ-Ai-gkk" firstAttribute="bottom" secondItem="c91-rX-zly" secondAttribute="bottom" id="rD0-Ds-yY0"/>
                         </constraints>

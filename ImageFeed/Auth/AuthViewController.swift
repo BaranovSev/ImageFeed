@@ -26,7 +26,13 @@ final class AuthViewController: UIViewController {
 extension AuthViewController: WebViewViewControllerDelegate {
     func webViewViewController(_ vc: WebViewViewController, didAuthenticateWithCode code: String) {
         OAuth2Service.shared.fetchAuthToken(code) { result in
-            print(result)
+            switch result {
+            case .success(let authToken):
+                print("Your auth (bearer token) is: \(authToken)")
+                //pepeare for segue?
+            case .failure(let error):
+                print("Error \(error)")
+            }
         }
     }
     
