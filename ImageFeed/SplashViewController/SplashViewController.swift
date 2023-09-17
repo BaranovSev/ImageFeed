@@ -10,6 +10,7 @@ import UIKit
 final class SplashViewController: UIViewController {
     private let ShowAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
     private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
     private var imageView: UIImageView = {
         let splashImage = UIImage(named: "Vector")
         let imageView = UIImageView(image: splashImage)
@@ -88,8 +89,8 @@ extension SplashViewController: AuthViewControllerDelegate {
             switch result {
             case .success(let token):
                 self.switchToTabBarController()
-                UIBlockingProgressHUD.dismiss()
                 self.fetchProfile(token: token)
+                UIBlockingProgressHUD.dismiss()
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
                 UIBlockingProgressHUD.dismiss()
@@ -102,12 +103,27 @@ extension SplashViewController: AuthViewControllerDelegate {
             guard let self = self else { return }
             switch result {
             case .success(let profile):
-                UIBlockingProgressHUD.dismiss()
+                self.fetchProfileImageURL(username: profile.username)
                 self.switchToTabBarController()
+                UIBlockingProgressHUD.dismiss()
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
                 assertionFailure(error.localizedDescription)
                 break
+            }
+        }
+    }
+    
+    func fetchProfileImageURL(username: String) {
+        profileImageService.fetchProfileImageURL(username: username){ [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let succes):
+                let  avatarURL = succes
+                print(avatarURL)
+                //TODO: need to load image
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }

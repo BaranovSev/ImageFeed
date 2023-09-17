@@ -34,34 +34,6 @@ struct ProfileResult: Codable {
     }
 }
 
-//MARK: - Profile image URLs model
-struct ProfileImageURLs: Decodable {
-    let profileImage: ImageForProfile
-    
-    private enum CodingKeysProfileImageURLs: String, CodingKey {
-        case profileImage = "profile_image"
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeysProfileImageURLs.self)
-
-        self.profileImage = try container.decode(ImageForProfile.self, forKey: .profileImage)
-    }
-}
-
-struct ImageForProfile: Codable {
-    let small: URL
-    let medium: URL
-    let large: URL
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        small = try container.decode(URL.self, forKey: .small)
-        medium = try container.decode(URL.self, forKey: .medium)
-        large = try container.decode(URL.self, forKey: .large)
-    }
-}
-
 //MARK: - Profile model
 struct Profile: Codable {
     let username, loginName, firstName, lastName, name, bio, email: String

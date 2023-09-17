@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
     private let profileService = ProfileService.shared
+    private let profileImageService = ProfileImageService.shared
     private var imageView: UIImageView = {
         let profileImage = UIImage(named: "avatar")
         let imageView = UIImageView(image: profileImage)
@@ -68,20 +69,8 @@ final class ProfileViewController: UIViewController {
             print("empty profile")
             return
         }
-        updateProfileDetails(profile: profile)
         
-        // TODO: remove hardcoded username
-        profileService.fetchImage(username: "gefest"){ [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let succes):
-                let  imagesURL = succes.medium
-                //need to load image
-
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        updateProfileDetails(profile: profile)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
