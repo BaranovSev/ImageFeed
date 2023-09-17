@@ -9,6 +9,7 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
+    private var profile: Profile?
     private var imageView: UIImageView = {
         let profileImage = UIImage(named: "avatar")
         let imageView = UIImageView(image: profileImage)
@@ -62,6 +63,43 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         addSubViews()
         applyConstraints()
+        
+        guard let token = OAuth2TokenStorage().token else {
+            fatalError("Trying to use an empty token")
+        }
+        
+        ProfileService.shared.fetchProfile(token){ [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let success):
+                self.profile = success
+                
+                let profileInfo = success
+                
+                self.nameLabel.text = profileInfo.name
+                self.emailLabel.text = profileInfo.email
+                self.postLabel.text = profileInfo.bio
+                
+                
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        // TODO: remove hardcoded username
+        ProfileService.shared.fetchImage(username: "gefest"){ [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let succes):
+                let  imagesURL = succes.medium
+                //need to load image
+
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
