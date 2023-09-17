@@ -9,6 +9,7 @@ import UIKit
 
 final class SplashViewController: UIViewController {
     private let ShowAuthenticationScreenSegueIdentifier = "ShowAuthenticationScreen"
+    private let profileService = ProfileService.shared
     private var imageView: UIImageView = {
         let splashImage = UIImage(named: "Vector")
         let imageView = UIImageView(image: splashImage)
@@ -24,11 +25,12 @@ final class SplashViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if OAuth2TokenStorage().token != nil {
-            self.switchToTabBarController()
-        } else {
+        guard let token = OAuth2TokenStorage().token else {
             performSegue(withIdentifier: ShowAuthenticationScreenSegueIdentifier, sender: nil)
+            return
         }
+            self.switchToTabBarController()
+            self.fetchProfile(token: token)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -84,12 +86,28 @@ extension SplashViewController: AuthViewControllerDelegate {
         OAuth2Service.shared.fetchAuthToken(code){ [weak self] result in
             guard let self = self else { return }
             switch result {
-            case .success:
+            case .success(let token):
                 self.switchToTabBarController()
                 UIBlockingProgressHUD.dismiss()
+                self.fetchProfile(token: token)
             case .failure(let error):
                 assertionFailure(error.localizedDescription)
                 UIBlockingProgressHUD.dismiss()
+            }
+        }
+    }
+    
+    func fetchProfile(token: String) {
+        profileService.fetchProfile(token) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let profile):
+                UIBlockingProgressHUD.dismiss()
+                self.switchToTabBarController()
+            case .failure(let error):
+                UIBlockingProgressHUD.dismiss()
+                assertionFailure(error.localizedDescription)
+                break
             }
         }
     }

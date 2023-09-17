@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
-    private var profile: Profile?
+    private let profileService = ProfileService.shared
     private var imageView: UIImageView = {
         let profileImage = UIImage(named: "avatar")
         let imageView = UIImageView(image: profileImage)
@@ -64,32 +64,14 @@ final class ProfileViewController: UIViewController {
         addSubViews()
         applyConstraints()
         
-        guard let token = OAuth2TokenStorage().token else {
-            fatalError("Trying to use an empty token")
+        guard let profile = profileService.profile else {
+            print("empty profile")
+            return
         }
-        
-        ProfileService.shared.fetchProfile(token){ [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let success):
-                self.profile = success
-                
-                let profileInfo = success
-                
-                self.nameLabel.text = profileInfo.name
-                self.emailLabel.text = profileInfo.email
-                self.postLabel.text = profileInfo.bio
-                
-                
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        updateProfileDetails(profile: profile)
         
         // TODO: remove hardcoded username
-        ProfileService.shared.fetchImage(username: "gefest"){ [weak self] result in
+        profileService.fetchImage(username: "gefest"){ [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let succes):
@@ -143,5 +125,12 @@ final class ProfileViewController: UIViewController {
     
     @objc private func didTapLogoutButton(_ sender: UIButton) {
         //BTN tapped
+    }
+    
+    private func updateProfileDetails(profile: Profile) {
+        // TODO: self.imageView.image =
+        self.nameLabel.text = profile.name
+        self.emailLabel.text = profile.loginName
+        self.postLabel.text = profile.bio
     }
 }

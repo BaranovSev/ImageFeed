@@ -82,11 +82,4 @@ struct Profile: Codable {
     }
 }
 
-func convertProfile(from result: ProfileResult) -> Profile {
-    Profile(username: result.username,
-            firstName: result.firstName,
-            lastName: result.lastName,
-            bio: result.bio,
-            email: result.email)
-}
 

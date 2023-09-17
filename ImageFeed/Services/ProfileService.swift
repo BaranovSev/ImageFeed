@@ -9,9 +9,8 @@ import Foundation
 
 final class ProfileService {
     static let shared = ProfileService()
-//    static var profile: Profile?
-//    static var imageForProfile: ImageForProfile?
-    
+    private(set) var profile: Profile?
+//    private(set) var imageForProfile: ImageForProfile?
     private init() { }
     
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
@@ -21,12 +20,9 @@ final class ProfileService {
                 guard let self = self else { return }
                 switch result {
                 case .success(let body):
-                    let profile: Profile? = convertProfile(from: body)
+                    let profile = convertProfile(from: body)
                     
-                    guard let profile = profile else {
-                        fatalError("Profile is empty")
-                    }
-                    
+                    self.profile = profile
                     completion(.success(profile))
                 case .failure(let error):
                     completion(.failure(error))
@@ -36,7 +32,7 @@ final class ProfileService {
         task.resume()
     }
     
-    func profileRequest(token: String) -> URLRequest {
+    private func profileRequest(token: String) -> URLRequest {
         var request = URLRequest.makeHTTPRequest(path: "/me", httpMethod: "GET", baseURL: URL(string: "https://api.unsplash.com")!)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
@@ -82,7 +78,7 @@ final class ProfileService {
         task.resume()
     }
     
-    func profileImageRequest(username: String) -> URLRequest {
+    private func profileImageRequest(username: String) -> URLRequest {
         var request = URLRequest.makeHTTPRequest(path: "/users/\(username)", httpMethod: "GET", baseURL: URL(string: "https://api.unsplash.com")!)
         request.setValue("Client-ID \(AccessKey)", forHTTPHeaderField: "Authorization")
         return request
@@ -94,11 +90,18 @@ final class ProfileService {
     ) -> URLSessionTask {
         let decoder = JSONDecoder()
         return URLSession.shared.data(for: request) { (result: Result<Data, Error>) in
-            print(result)
             let response = result.flatMap { data -> Result<ProfileImageURLs, Error> in
                 Result { try decoder.decode(ProfileImageURLs.self, from: data) }
             }
             completion(response)
         }
     }
+}
+
+func convertProfile(from result: ProfileResult) -> Profile {
+    Profile(username: result.username,
+            firstName: result.firstName,
+            lastName: result.lastName,
+            bio: result.bio,
+            email: result.email)
 }
