@@ -11,6 +11,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
     private let profileService = ProfileService.shared
     private let profileImageService = ProfileImageService.shared
+    private var profileImageServiceObserver: NSObjectProtocol?
     private var imageView: UIImageView = {
         let profileImage = UIImage(named: "avatar")
         let imageView = UIImageView(image: profileImage)
@@ -64,6 +65,16 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         addSubViews()
         applyConstraints()
+        
+        profileImageServiceObserver = NotificationCenter.default
+            .addObserver(forName: ProfileImageService.DidChangeNotification,
+                         object: nil,
+                         queue: .main
+            ) { [weak self] _ in
+                guard let self = self else { return }
+                self.updateAvatar()
+            }
+        updateAvatar()
         
         guard let profile = profileService.profile else {
             print("empty profile")
@@ -121,5 +132,13 @@ final class ProfileViewController: UIViewController {
         self.nameLabel.text = profile.name
         self.emailLabel.text = profile.loginName
         self.postLabel.text = profile.bio
+    }
+    
+    private func updateAvatar() {
+        guard
+            let profileImageURL = profileImageService.avatarURL,
+            let url = URL(string: profileImageURL)
+        else { return }
+        //TODO: update avatar using Kingfisher
     }
 }
