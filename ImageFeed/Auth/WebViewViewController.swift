@@ -19,13 +19,15 @@ final class WebViewViewController: UIViewController {
     @IBOutlet weak private var webView: WKWebView!
     @IBOutlet weak private var progressView: UIProgressView!
     
+    private var estimatedProgressObservation: NSKeyValueObservation?
+    
     weak var delegate:WebViewViewControllerDelegate?
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
     }
     
-//MARK: - Lifecycles
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,39 +44,30 @@ final class WebViewViewController: UIViewController {
         let request = URLRequest(url: url)
         
         webView.load(request)
+        estimatedProgressObservation = webView.observe(
+            \.estimatedProgress,
+             options: [],
+             changeHandler: { [weak self] _, _ in
+                 guard let self = self else { return }
+                 self.updateProgress()
+             })
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        webView.addObserver(self,
-                            forKeyPath: #keyPath(WKWebView.estimatedProgress),
-                            context: nil
-        )
         updateProgress()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        webView.removeObserver(self,
-                               forKeyPath: #keyPath(WKWebView.estimatedProgress),
-                               context: nil
-        )
-    }
- 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if keyPath == #keyPath(WKWebView.estimatedProgress) {
-            updateProgress()
-        } else {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
-        }
     }
     
-//MARK: - IBAction
+    //MARK: - IBAction
     @IBAction private func didTapBackButton(_ sender: Any?) {
         delegate?.webViewViewControllerDidCancel(self)
     }
     
-// MARK: - Private Methods
+    // MARK: - Private Methods
     func updateProgress() {
         progressView.progress = Float(webView.estimatedProgress)
         progressView.isHidden = fabs(webView.estimatedProgress - 1.0) <= 0.0001

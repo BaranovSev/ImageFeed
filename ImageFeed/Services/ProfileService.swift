@@ -26,7 +26,7 @@ final class ProfileService {
         lastCode = token //? 
         
         let request = profileRequest(token: token)
-        let task = object(for: request) { [weak self] result in
+        let fulfillCompletionOnMainThread: (Result<ProfileResult, Error>) -> Void = { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 switch result {
@@ -42,6 +42,9 @@ final class ProfileService {
                 }
             }
         }
+        
+        let task = urlSession.objectTask(request: request, fulfillCompletionOnMainThread: fulfillCompletionOnMainThread)
+        
         self.task = task
         task.resume()
     }
@@ -50,19 +53,6 @@ final class ProfileService {
         var request = URLRequest.makeHTTPRequest(path: "/me", httpMethod: "GET", baseURL: URL(string: "https://api.unsplash.com")!)
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         return request
-    }
-    
-    private func object(
-        for request: URLRequest,
-        completion: @escaping (Result<ProfileResult, Error>) -> Void
-    ) -> URLSessionTask {
-        let decoder = JSONDecoder()
-        return urlSession.data(for: request) { (result: Result<Data, Error>) in
-            let response = result.flatMap { data -> Result<ProfileResult, Error> in
-                Result { try decoder.decode(ProfileResult.self, from: data) }
-            }
-            completion(response)
-        }
     }
 }
 

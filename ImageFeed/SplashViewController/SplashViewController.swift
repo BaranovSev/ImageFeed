@@ -89,7 +89,7 @@ extension SplashViewController: AuthViewControllerDelegate {
             switch result {
             case .success(let token):
                 self.switchToTabBarController()
-                self.fetchProfile(token: token)
+                self.fetchProfile(token: token.accessToken)
                 UIBlockingProgressHUD.dismiss()
             case .failure(let error):
                 assertionFailure(error.localizedDescription)

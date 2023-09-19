@@ -22,18 +22,18 @@ final class ProfileImageService {
         task?.cancel()
         
         let request = profileImageRequest(username: username)
-        let task = object(for: request) { [weak self] result in
+        let fulfillCompletionOnMainThread: (Result<UserResult, Error>) -> Void = { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 switch result {
                 case .success(let body):
                     let profileImageURLs: UserResult? = body
                     
-                    guard let profileImageURLs = profileImageURLs else {
+                    guard let profileImagesURLs = profileImageURLs else {
                         return
                     }
 
-                    let profileImageURL = profileImageURLs.profileImage.small
+                    let profileImageURL = profileImagesURLs.profileImage.small
                     
                     self.avatarURL = profileImageURL
                     completion(.success(profileImageURL))
@@ -49,6 +49,9 @@ final class ProfileImageService {
                 }
             }
         }
+        
+        let task = urlSession.objectTask(request: request, fulfillCompletionOnMainThread: fulfillCompletionOnMainThread)
+        
         self.task = task
         task.resume()
     }
@@ -58,48 +61,6 @@ final class ProfileImageService {
         request.setValue("Client-ID \(AccessKey)", forHTTPHeaderField: "Authorization")
         return request
     }
-    
-    private func object(
-        for request: URLRequest,
-        completion: @escaping (Result<UserResult, Error>) -> Void
-    ) -> URLSessionTask {
-        let decoder = JSONDecoder()
-        return urlSession.data(for: request) { (result: Result<Data, Error>) in
-            let response = result.flatMap { data -> Result<UserResult, Error> in
-                Result { try decoder.decode(UserResult.self, from: data) }
-            }
-            completion(response)
-        }
-    }
 }
 
-
-//MARK: - Profile image URLs model
-struct UserResult: Decodable {
-    let profileImage: ImageForProfile
-    
-    private enum UserResultCodingKeys: String, CodingKey {
-        case profileImage = "profile_image"
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: UserResultCodingKeys.self)
-
-        self.profileImage = try container.decode(ImageForProfile.self, forKey: .profileImage)
-    }
-}
-
-struct ImageForProfile: Codable {
-    let small: String
-    let medium: String
-    let large: String
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        small = try container.decode(String.self, forKey: .small)
-        medium = try container.decode(String.self, forKey: .medium)
-        large = try container.decode(String.self, forKey: .large)
-    }
-}
 
