@@ -20,10 +20,10 @@ final class ProfileService {
     func fetchProfile(_ token: String, completion: @escaping (Result<Profile, Error>) -> Void) {
         assert(Thread.isMainThread)
         
-        if lastCode == token { return } //TODO: read abour Task groups in swift & async await
+        if lastCode == token { return } 
         
         task?.cancel()
-        lastCode = token //? 
+        lastCode = token
         
         let request = profileRequest(token: token)
         let fulfillCompletionOnMainThread: (Result<ProfileResult, Error>) -> Void = { [weak self] result in

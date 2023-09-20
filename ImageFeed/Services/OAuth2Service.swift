@@ -62,7 +62,9 @@ final class OAuth2Service {
     }
 }
 
-func makeGenericError() { }
+func makeGenericError() {
+// TODO: handle
+}
 
 // MARK: - Helpers for sprint 10
 extension OAuth2Service {
@@ -81,15 +83,7 @@ extension OAuth2Service {
 }
 
 // MARK: - Helpers for sprint 11
-extension OAuth2Service {
-    var selfProfileRequest: URLRequest {
-        URLRequest.makeHTTPRequest(path: "/me", httpMethod: "GET")
-    }
-    
-    func profileImageURLRequest(username: String) -> URLRequest {
-        URLRequest.makeHTTPRequest(path: "/users/\(username)", httpMethod: "GET")
-    }
-    
+extension OAuth2Service {    
     func photosRequest(page: Int, perPage: Int) -> URLRequest {
         URLRequest.makeHTTPRequest(path: "/photos?"
           + "page=\(page)"

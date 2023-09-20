@@ -5,13 +5,14 @@
 //  Created by Stepan Baranov on 07.09.2023.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Network Connection
 enum NetworkError: Error {
     case httpStatusCode(Int)
     case urlRequestError(Error)
     case urlSessionError
+    case genericError
 }
 
 extension URLSession {
@@ -33,12 +34,12 @@ extension URLSession {
                         fulfillCompletionOnMainThread(.failure(error))
                     }
                 } else {
-                    fulfillCompletionOnMainThread(.failure(makeGenericError() as! Error))
+                    fulfillCompletionOnMainThread(.failure(NetworkError.genericError))
                 }
             } else if let error = error {
                 fulfillCompletionOnMainThread(.failure(NetworkError.urlRequestError(error)))
             } else {
-                fulfillCompletionOnMainThread(.failure(makeGenericError() as! Error))
+                fulfillCompletionOnMainThread(.failure(NetworkError.genericError))
             }
         })
     }

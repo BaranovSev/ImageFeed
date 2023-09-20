@@ -92,6 +92,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 self.fetchProfile(token: token.accessToken)
                 UIBlockingProgressHUD.dismiss()
             case .failure(let error):
+                AlertPresenter(onViewController: self).showAlert(alertError: error)
                 assertionFailure(error.localizedDescription)
                 UIBlockingProgressHUD.dismiss()
             }
@@ -108,6 +109,7 @@ extension SplashViewController: AuthViewControllerDelegate {
                 UIBlockingProgressHUD.dismiss()
             case .failure(let error):
                 UIBlockingProgressHUD.dismiss()
+                AlertPresenter(onViewController: self).showAlert(alertError: error)
                 assertionFailure(error.localizedDescription)
                 break
             }
@@ -119,10 +121,10 @@ extension SplashViewController: AuthViewControllerDelegate {
             guard let self = self else { return }
             switch result {
             case .success(let succes):
-                let  avatarURL = succes
-                print(avatarURL)
+                let avatarURL = succes
                 //TODO: need to load image
             case .failure(let error):
+                AlertPresenter(onViewController: self).showAlert(alertError: error)
                 print(error.localizedDescription)
             }
         }
