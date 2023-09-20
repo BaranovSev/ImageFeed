@@ -78,6 +78,7 @@ final class ProfileViewController: UIViewController {
         
         guard let profile = profileService.profile else {
             print("empty profile")
+            AlertPresenter(onViewController: self).showAlert(alertError: NetworkError.urlSessionError) //hardcoded
             return
         }
         
@@ -124,7 +125,7 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc private func didTapLogoutButton(_ sender: UIButton) {
-        //BTN tapped
+        //TODO: delete token
     }
     
     private func updateProfileDetails(profile: Profile) {
