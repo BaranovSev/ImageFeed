@@ -20,6 +20,7 @@
 		FDB780C62AB30129002066E4 /* UIBlockingProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB780C52AB30129002066E4 /* UIBlockingProgressHUD.swift */; };
 		FDB780C82AB33797002066E4 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB780C72AB33797002066E4 /* ProfileService.swift */; };
 		FDB9B2FE2AC087F000DE132B /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = FDB9B2FD2AC087F000DE132B /* SwiftKeychainWrapper */; };
+		FDB9B3002AC0B44B00DE132B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB9B2FF2AC0B44B00DE132B /* TabBarController.swift */; };
 		FDC1114F2A77EA7300591356 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC1114E2A77EA7300591356 /* AppDelegate.swift */; };
 		FDC111512A77EA7300591356 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111502A77EA7300591356 /* SceneDelegate.swift */; };
 		FDC111532A77EA7300591356 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC111522A77EA7300591356 /* ImagesListViewController.swift */; };
@@ -68,6 +69,7 @@
 		FDAC6C092AB9A874002951AC /* ImageForProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageForProfile.swift; sourceTree = "<group>"; };
 		FDB780C52AB30129002066E4 /* UIBlockingProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlockingProgressHUD.swift; sourceTree = "<group>"; };
 		FDB780C72AB33797002066E4 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		FDB9B2FF2AC0B44B00DE132B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FDC1114B2A77EA7300591356 /* ImageFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDC1114E2A77EA7300591356 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDC111502A77EA7300591356 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				FDC111502A77EA7300591356 /* SceneDelegate.swift */,
 				FDF3AFC82A9A65E2007052DF /* Constants.swift */,
 				FDB780C52AB30129002066E4 /* UIBlockingProgressHUD.swift */,
+				FDB9B2FF2AC0B44B00DE132B /* TabBarController.swift */,
 				FDAA47642AA4993C00C54035 /* Models */,
 				FDD2173C2AAA576000E1A540 /* Services */,
 				FD34E65A2A9B66A500851120 /* Auth */,
@@ -405,6 +408,7 @@
 				FD34E6592A9B665800851120 /* AuthViewController.swift in Sources */,
 				FDD217382AA9FCCC00E1A540 /* URLSession+Extensions.swift in Sources */,
 				FDF3AFC92A9A65E2007052DF /* Constants.swift in Sources */,
+				FDB9B3002AC0B44B00DE132B /* TabBarController.swift in Sources */,
 				FDA984B72AB746A0005F49E2 /* ProfileImageService.swift in Sources */,
 				FDFE54FF2A8BE8D700541A7E /* SingleImageViewController.swift in Sources */,
 				FD34E65C2A9B68F300851120 /* WebViewViewController.swift in Sources */,
