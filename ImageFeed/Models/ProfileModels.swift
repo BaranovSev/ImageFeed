@@ -28,8 +28,8 @@ struct ProfileResult: Codable {
         
         self.username = try container.decode(String.self, forKey: .username)
         self.firstName = try container.decode(String.self, forKey: .firstName)
-        self.lastName = try container.decode(String.self, forKey: .lastName)
-        self.bio = try container.decode(String.self, forKey: .bio)
+        self.lastName = try container.decode(String?.self, forKey: .lastName) ?? ""
+        self.bio = try container.decode(String?.self, forKey: .bio) ?? ""
         self.email = try container.decode(String.self, forKey: .email)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class ProfileViewController: UIViewController {
     // MARK: - Private Properties
@@ -13,7 +14,7 @@ final class ProfileViewController: UIViewController {
     private let profileImageService = ProfileImageService.shared
     private var profileImageServiceObserver: NSObjectProtocol?
     private var imageView: UIImageView = {
-        let profileImage = UIImage(named: "avatar")
+        let profileImage = UIImage(named: "Stub")
         let imageView = UIImageView(image: profileImage)
         imageView.tintColor = .gray
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +130,6 @@ final class ProfileViewController: UIViewController {
     }
     
     private func updateProfileDetails(profile: Profile) {
-        // TODO: self.imageView.image =
         self.nameLabel.text = profile.name
         self.emailLabel.text = profile.loginName
         self.postLabel.text = profile.bio
@@ -140,6 +140,7 @@ final class ProfileViewController: UIViewController {
             let profileImageURL = profileImageService.avatarURL,
             let url = URL(string: profileImageURL)
         else { return }
+        self.imageView.kf.setImage(with: url)
         //TODO: update avatar using Kingfisher
     }
 }

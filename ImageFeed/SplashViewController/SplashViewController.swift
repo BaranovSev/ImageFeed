@@ -100,8 +100,7 @@ extension SplashViewController: AuthViewControllerDelegate {
     }
     
     func fetchProfile(token: String) {
-        profileService.fetchProfile(token) { [weak self] result in
-            guard let self = self else { return }
+        profileService.fetchProfile(token) { result in
             switch result {
             case .success(let profile):
                 self.fetchProfileImageURL(username: profile.username)
