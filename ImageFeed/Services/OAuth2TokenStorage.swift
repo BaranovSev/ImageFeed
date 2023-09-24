@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 // MARK: - Storage
 final class OAuth2TokenStorage {
@@ -15,20 +16,19 @@ final class OAuth2TokenStorage {
     }
     var token: String? {
         get {
-            guard let data = userDefaults.data(forKey: Keys.token.rawValue),
-                  let record = try? JSONDecoder().decode(String.self, from: data) else {
-                return nil
-            }
-            
-            return record
+            let token: String? = KeychainWrapper.standard.string(forKey: Keys.token.rawValue)
+            return token
         }
         
         set {
-            guard let data = try? JSONEncoder().encode(newValue) else {
+            guard let newValue = newValue else {
                 return
             }
             
-            userDefaults.set(data, forKey: Keys.token.rawValue)
+            let isSuccess = KeychainWrapper.standard.set(newValue, forKey: Keys.token.rawValue)
+            guard isSuccess else {
+                return
+            }
         }
     }
 }
