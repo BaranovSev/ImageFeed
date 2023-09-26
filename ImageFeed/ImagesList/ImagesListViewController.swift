@@ -21,7 +21,7 @@ final class ImagesListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor(named: "YP Black (iOS)")
+        tableView.backgroundColor = .black
         tableView.delegate = self
         tableView.dataSource = self
         tableView.layer.masksToBounds = true

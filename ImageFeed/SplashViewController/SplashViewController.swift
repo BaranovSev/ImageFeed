@@ -50,7 +50,9 @@ final class SplashViewController: UIViewController {
         view.addSubview(imageView)
             NSLayoutConstraint.activate([
                 imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+                imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                imageView.widthAnchor.constraint(equalToConstant: 60),
+                imageView.heightAnchor.constraint(equalToConstant: 60)
             ])
     }
     

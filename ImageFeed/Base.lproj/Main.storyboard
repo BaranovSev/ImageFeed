@@ -49,7 +49,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aYY-At-Zji"/>
-                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3bW-8u-EyB" firstAttribute="centerY" secondItem="3SU-Bv-Z0a" secondAttribute="centerY" id="7Nj-Ax-pfh"/>
                             <constraint firstItem="3bW-8u-EyB" firstAttribute="centerX" secondItem="3SU-Bv-Z0a" secondAttribute="centerX" id="OpC-of-YOJ"/>
@@ -131,7 +131,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-Fi-P5m">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" name="YP Black (iOS)"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImagesListCell" rowHeight="179" id="J2q-fw-Nmd" customClass="ImagesListCell" customModule="ImageFeed" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="414" height="179"/>
@@ -165,7 +165,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" name="YP Black (iOS)"/>
+                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Tqe-qd-nD0" secondAttribute="trailing" constant="16" id="05h-CV-lrF"/>
                                                 <constraint firstItem="Tqe-qd-nD0" firstAttribute="top" secondItem="XIj-dP-K4e" secondAttribute="top" constant="4" id="EbE-Nc-IaO"/>
@@ -178,7 +178,7 @@
                                                 <constraint firstItem="jPL-p2-K0t" firstAttribute="leading" secondItem="Tqe-qd-nD0" secondAttribute="leading" constant="8" id="mE4-GG-cUZ" userLabel="Date Label.leading = Cell Image.leading + 8"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cellImage" destination="Tqe-qd-nD0" id="5lg-T3-Cvc"/>
                                             <outlet property="dateLabel" destination="jPL-p2-K0t" id="gnB-oe-sa2"/>
@@ -193,7 +193,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="qUd-Fi-P5m" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1se-8h-MlS"/>
                             <constraint firstAttribute="bottom" secondItem="qUd-Fi-P5m" secondAttribute="bottom" id="Ba3-RY-cFL"/>
@@ -265,7 +265,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="T2D-I8-ax2"/>
-                        <color key="backgroundColor" name="YP Black (iOS)"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="I42-P5-iq5" firstAttribute="centerX" secondItem="T2D-I8-ax2" secondAttribute="centerX" id="0a2-JE-k3d"/>
                             <constraint firstItem="PFG-2L-JQL" firstAttribute="top" secondItem="riJ-eN-LwC" secondAttribute="top" id="9Kr-Oy-3jx"/>
@@ -298,7 +298,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" name="YP White (iOS)"/>
                         <tabBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" name="YP Black (iOS)"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </tabBarAppearance>
                     </tabBar>
                 </tabBarController>
@@ -309,7 +309,6 @@
         <!--Navigation Controller-->
         <scene sceneID="npx-KC-80Z">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w9G-WS-sX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9hP-8Z-1qH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rKF-JD-fa9">
@@ -321,6 +320,7 @@
                         <segue destination="t4X-WC-Gmp" kind="relationship" relationship="rootViewController" id="fS7-XE-AVT"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9G-WS-sX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-221.73913043478262" y="875.89285714285711"/>
         </scene>
