@@ -126,7 +126,8 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc private func didTapLogoutButton(_ sender: UIButton) {
-        //TODO: delete token
+        OAuth2Service.shared.removeToken()
+        // show authView
     }
     
     private func updateProfileDetails(profile: Profile) {

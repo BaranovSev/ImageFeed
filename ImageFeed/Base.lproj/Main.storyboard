@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B7C-7C-Rky">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9hP-8Z-1qH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--Auth View Controller-->
         <scene sceneID="ndY-lj-qYx">
             <objects>
-                <viewController id="t4X-WC-Gmp" customClass="AuthViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t4X-WC-Gmp" customClass="AuthViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3SU-Bv-Z0a">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,28 +306,11 @@
             </objects>
             <point key="canvasLocation" x="-25" y="-336"/>
         </scene>
-        <!--Splash View Controller-->
-        <scene sceneID="1ra-K8-Csg">
-            <objects>
-                <viewController id="B7C-7C-Rky" customClass="SplashViewController" customModule="ImageFeed" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MIi-Fr-L6m">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Sed-WX-rjP"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <connections>
-                        <segue destination="9hP-8Z-1qH" kind="presentation" identifier="ShowAuthenticationScreen" modalPresentationStyle="fullScreen" id="vMI-TO-Phc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hRC-Ka-C5Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1443" y="297"/>
-        </scene>
-        <!--Splash View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="npx-KC-80Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9hP-8Z-1qH" customClass="SplashViewController" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9G-WS-sX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9hP-8Z-1qH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rKF-JD-fa9">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -338,7 +321,6 @@
                         <segue destination="t4X-WC-Gmp" kind="relationship" relationship="rootViewController" id="fS7-XE-AVT"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w9G-WS-sX2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-221.73913043478262" y="875.89285714285711"/>
         </scene>

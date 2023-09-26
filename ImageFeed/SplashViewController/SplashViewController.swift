@@ -27,7 +27,15 @@ final class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         guard let token = OAuth2TokenStorage().token else {
-            performSegue(withIdentifier: ShowAuthenticationScreenSegueIdentifier, sender: nil)
+            guard let viewController = UIStoryboard(name: "Main", bundle: .main)
+                .instantiateViewController(withIdentifier: "AuthViewController") as? AuthViewController else {
+                return
+            }
+            
+            viewController.delegate = self
+            viewController.modalPresentationStyle = .fullScreen
+            
+            present(viewController, animated: false)
             return
         }
             self.switchToTabBarController()
@@ -55,21 +63,6 @@ final class SplashViewController: UIViewController {
             .instantiateViewController(withIdentifier: "TabBarViewController")
         
         window.rootViewController = tabBarController
-    }
-}
-
-extension SplashViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == ShowAuthenticationScreenSegueIdentifier {
-            guard
-                let navigationController = segue.destination as? UINavigationController,
-                let viewController = navigationController.viewControllers[0] as? AuthViewController
-            else { fatalError("Failed to prepare for \(ShowAuthenticationScreenSegueIdentifier)") }
-            
-            viewController.delegate = self
-        } else {
-            super.prepare(for: segue, sender: sender)
-        }
     }
 }
 

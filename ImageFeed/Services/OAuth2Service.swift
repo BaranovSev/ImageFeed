@@ -25,6 +25,10 @@ final class OAuth2Service {
     
     private init() { }
     
+    func removeToken() {
+        self.authToken = nil
+    }
+    
     func fetchAuthToken(
         _ code: String,
         completion: @escaping (Result<OAuthTokenResponseBody, Error>) -> Void
